@@ -9,10 +9,7 @@ import paginationFactory from 'react-bootstrap-table2-paginator';
 export default class ShowHotels extends Component {
     constructor(props) {
         super(props);
-
-
-
-        this.state = { hotels: [], hotelsShortDescription: [], msg: "Fetching hotels.." }
+        this.state = { hotels: [], msg: "Fetching hotels.." }
     }
     async componentDidMount() {
         const data = await facade.fetchHotels();
