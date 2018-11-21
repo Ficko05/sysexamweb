@@ -1,3 +1,3 @@
 
-const endpoint = "https://stevenkhuu.com/ca3";
+const endpoint = "http://localhost:8084/sysexam";
 export default endpoint;

@@ -34,6 +34,9 @@ const Navigation = () => {
             <li>
               <Link to="/login">Login</Link>
             </li>
+            <li>
+              <Link to="/hotels">Imagine a search bar</Link>
+            </li>
           </ul>
           <hr />
           </div>
