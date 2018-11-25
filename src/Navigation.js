@@ -28,7 +28,6 @@ const Navigation = () => {
               <Link to="/hotels">Show Hotels</Link>
             </li>
           </ul>
-          <hr />
           </div>
       </Router>
     );

@@ -9,88 +9,113 @@ import paginationFactory from 'react-bootstrap-table2-paginator';
 export default class ShowHotels extends Component {
     constructor(props) {
         super(props);
-        this.state = { hotels: [], showDetails: false, id: 0}
+        this.state = { hotels: [], showDetails: false, id: 0 }
     }
     async componentDidMount() {
         const data = await facade.fetchHotels(this.state.id);
         this.setState({ hotels: data });
     }
 
-   
+
     render() {
-        if(this.state.showDetails){
-            return <HotelDetails id={this.state.id.id}/>;
-        } else{
-        const columns = [{
-            dataField: 'name',
-            text: 'Name',
-            sort: true,
-  //          filter: textFilter()
-          }, {
-            dataField: 'description',
-            text: 'Description',
-          }, {
-            dataField: 'rating',
-            text: 'Rating',
-            sort: true
-          }, {
-            dataField: 'zipCode',
-            text: 'Zip Code',
-            sort: true
-          }];
+        if (this.state.showDetails) {
+            return <HotelDetails id={this.state.id.id} />;
+        } else {
+            const columns = [{
+                dataField: 'name',
+                text: 'Name',
+                sort: true,
+                //          filter: textFilter()
+            }, {
+                dataField: 'description',
+                text: 'Description',
+            }, {
+                dataField: 'rating',
+                text: 'Rating',
+                sort: true
+            }, {
+                dataField: 'zipCode',
+                text: 'Zip Code',
+                sort: true
+            }];
 
-          const rowEvents = {
-            onClick: (e, row) => {
-    
-                let id = row.id;
-                this.setState({showDetails: true, id: {id}})
-    
+            const rowEvents = {
+                onClick: (e, row) => {
+
+                    let id = row.id;
+                    this.setState({ showDetails: true, id: { id } })
+
+                }
             }
-    }
+           
 
-        
-        return (
-            
-            <div>
-                <BootstrapTable
-                striped
-                hover
-                bootstrap4
-                keyField='id'
-                data={this.state.hotels}
-                columns={columns}
-                filter={filterFactory()}
-                pagination={paginationFactory()}
-                rowEvents={rowEvents}
-            />
-            </div>
-        );
+            return (
+
+                <div className="container">
+                    <BootstrapTable
+                        striped
+                        hover
+                        bootstrap4
+                        keyField='id'
+                        data={this.state.hotels}
+                        columns={columns}
+                        filter={filterFactory()}
+                        pagination={paginationFactory()}
+                        rowEvents={rowEvents}
+                    />
+                </div>
+            );
+        }
     }
-}
 }
 
 class HotelDetails extends Component {
-constructor(props){
-    super(props);
-    this.state = { details: []}
+    constructor(props) {
+        super(props);
+        this.state = { details: [] }
 
-}
-async componentDidMount() {
-    const data = await facade.fetchHotel(this.props.id);
-    this.setState({ details: data })
-    console.log(this.state.details);
-}
-render() {
-    return(
-    <div>
-        Name: {this.state.details.name}
-        <br />
-        Description: {this.state.details.description}
-        <br />
-        Rating: {this.state.details.rating}
-        <br />
-        Zip code: {this.state.details.zipCode}
-    </div>
-    );
-}
+    }
+    async componentDidMount() {
+        const data = await facade.fetchHotel(this.props.id);
+        this.setState({ details: data })  
+    }
+
+    
+    render() {
+        return (
+            <div className="container">
+                <div>
+                    <h1>
+                        {this.state.details.name}
+                    </h1>
+                </div>
+                <br />
+                <div>
+                    <h4>
+                        Description:
+                    </h4>
+                    <a>
+                        {this.state.details.description}
+                    </a>
+                </div>
+                <br />
+                <div>
+                    <h4>
+                        Rating: {this.state.details.rating}
+                    </h4>
+
+                </div>
+                <br />
+                <div>
+                    <h4>
+                        Zip code: {this.state.details.zipCode}
+                    </h4>
+                </div>
+                <bottons 
+                onClick={this.backEvents}>
+                Back 
+                </bottons>
+            </div>
+        );
+    }
 }
