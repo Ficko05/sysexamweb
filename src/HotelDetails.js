@@ -29,9 +29,9 @@ export default class HotelDetails extends Component {
                     <h4>
                         Description:
                     </h4>
-                    <a>
+                    <p>
                         {this.state.details.description}
-                    </a>
+                    </p>
                 </div>
                 <br />
                 <div>

@@ -11,16 +11,27 @@ export default class ShowHotels extends Component {
     constructor(props) {
         super(props);
         this.state = { hotels: [], showDetails: false, id: 0 }
+        this.hideDetails = this.hideDetails.bind(this);
     }
     async componentDidMount() {
         const data = await facade.fetchHotels(this.state.id);
         this.setState({ hotels: data });
     }
 
+    hideDetails() {
+        this.setState({ showDetails: false });
+    }
 
     render() {
         if (this.state.showDetails) {
-            return <HotelDetails id={this.state.id.id} />;
+            return (
+                <div>
+                    <HotelDetails id={this.state.id.id} />
+                    <div className="container">
+                        <button type="button" class="btn btn-success" onClick={this.hideDetails}>back</button>
+                    </div>
+                </div>
+            );
         } else {
             const columns = [{
                 dataField: 'name',
@@ -48,7 +59,7 @@ export default class ShowHotels extends Component {
 
                 }
             }
-           
+
 
             return (
 
