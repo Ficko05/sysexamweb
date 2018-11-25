@@ -64,7 +64,6 @@ class LoggedIn extends Component {
   render() {
     return (
       <div>
-        <h2>Data Received from server</h2>
         <h3>{this.state.dataFromServer}</h3>
       </div>
     )
