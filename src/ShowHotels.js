@@ -28,7 +28,7 @@ export default class ShowHotels extends Component {
                 <div>
                     <HotelDetails id={this.state.id.id} />
                     <div className="container">
-                        <button type="button" class="btn btn-success" onClick={this.hideDetails}>back</button>
+                        <button type="button" className="btn btn-success" onClick={this.hideDetails}>back</button>
                     </div>
                 </div>
             );
