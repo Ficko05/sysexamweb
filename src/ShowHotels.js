@@ -24,7 +24,7 @@ export default class ShowHotels extends Component {
         const columns = [{
             dataField: 'name',
             text: 'Name',
-   //         sort: true,
+            sort: true,
   //          filter: textFilter()
           }, {
             dataField: 'description',
@@ -32,10 +32,11 @@ export default class ShowHotels extends Component {
           }, {
             dataField: 'rating',
             text: 'Rating',
-   //         sort: true
+            sort: true
           }, {
             dataField: 'zipCode',
-            text: 'Zip Code'
+            text: 'Zip Code',
+            sort: true
           }];
 
           const rowEvents = {
