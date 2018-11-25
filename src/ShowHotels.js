@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import facade from "./apiFacade";
+import HotelDetails from "./HotelDetails";
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import BootstrapTable from 'react-bootstrap-table-next';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
@@ -66,56 +67,5 @@ export default class ShowHotels extends Component {
                 </div>
             );
         }
-    }
-}
-
-class HotelDetails extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { details: [] }
-
-    }
-    async componentDidMount() {
-        const data = await facade.fetchHotel(this.props.id);
-        this.setState({ details: data })  
-    }
-
-    
-    render() {
-        return (
-            <div className="container">
-                <div>
-                    <h1>
-                        {this.state.details.name}
-                    </h1>
-                </div>
-                <br />
-                <div>
-                    <h4>
-                        Description:
-                    </h4>
-                    <a>
-                        {this.state.details.description}
-                    </a>
-                </div>
-                <br />
-                <div>
-                    <h4>
-                        Rating: {this.state.details.rating}
-                    </h4>
-
-                </div>
-                <br />
-                <div>
-                    <h4>
-                        Zip code: {this.state.details.zipCode}
-                    </h4>
-                </div>
-                <bottons 
-                onClick={this.backEvents}>
-                Back 
-                </bottons>
-            </div>
-        );
     }
 }
