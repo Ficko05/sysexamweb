@@ -9,13 +9,18 @@ import paginationFactory from 'react-bootstrap-table2-paginator';
 export default class ShowHotels extends Component {
     constructor(props) {
         super(props);
-        this.state = { hotels: [], msg: "Fetching hotels.." }
+        this.state = { hotels: [], showDetails: false, id: 0}
     }
     async componentDidMount() {
-        const data = await facade.fetchHotels();
-        this.setState({ hotels: data })
+        const data = await facade.fetchHotels(this.state.id);
+        this.setState({ hotels: data });
     }
+
+   
     render() {
+        if(this.state.showDetails){
+            return <HotelDetails id={this.state.id.id}/>;
+        } else{
         const columns = [{
             dataField: 'name',
             text: 'Name',
@@ -33,7 +38,18 @@ export default class ShowHotels extends Component {
             text: 'Zip Code'
           }];
 
+          const rowEvents = {
+            onClick: (e, row) => {
+    
+                let id = row.id;
+                this.setState({showDetails: true, id: {id}})
+    
+            }
+    }
+
+        
         return (
+            
             <div>
                 <BootstrapTable
                 striped
@@ -44,8 +60,30 @@ export default class ShowHotels extends Component {
                 columns={columns}
                 filter={filterFactory()}
                 pagination={paginationFactory()}
+                rowEvents={rowEvents}
             />
             </div>
         );
     }
+}
+}
+
+class HotelDetails extends Component {
+constructor(props){
+    super(props);
+    this.state = { details: []}
+
+}
+async componentDidMount() {
+    const data = await facade.fetchHotel(this.props.id);
+    this.setState({ details: data })
+    console.log(this.state.details);
+}
+render() {
+    return(
+    <div>
+        <img src={`data:image/jpeg;base64,${this.state.details.picture}`} />
+    </div>
+    );
+}
 }
