@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import facade from "./apiFacade";
-import { HashRouter as Router, Route, NavLink as Link, Switch } from "react-router-dom";
-import Navigation from "./Navigation.js";
 
 
 class Login extends Component {

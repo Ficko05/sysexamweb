@@ -1,9 +1,5 @@
 import React from "react";
-import { HashRouter as Router, Route, NavLink as Link, Switch } from "react-router-dom";
-import App from "./App.js";
-import Home from "./Home.js";
-import About from "./About.js";
-import Topics from "./Topics.js";
+import { HashRouter as Router, NavLink as Link} from "react-router-dom";
 
 
 /*const Navigation = () => {

@@ -1,5 +1,5 @@
-import React, {Component} from "react";
-import { HashRouter as Router, Route, NavLink as Link, Switch } from "react-router-dom";
+import React from "react";
+import {Route, NavLink as Link} from "react-router-dom";
 
 function Topics({ match }) {
     return (
