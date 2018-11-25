@@ -22,16 +22,10 @@ const Navigation = () => {
               <Link exact to="/">Home</Link>
             </li>
             <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/topics">Topics</Link>
-            </li>
-            <li>
               <Link to="/login">Login</Link>
             </li>
             <li>
-              <Link to="/hotels">Imagine a search bar</Link>
+              <Link to="/hotels">Show Hotels</Link>
             </li>
           </ul>
           <hr />
