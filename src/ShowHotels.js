@@ -82,7 +82,13 @@ async componentDidMount() {
 render() {
     return(
     <div>
-        <img src={`data:image/jpeg;base64,${this.state.details.picture}`} />
+        Name: {this.state.details.name}
+        <br />
+        Description: {this.state.details.description}
+        <br />
+        Rating: {this.state.details.rating}
+        <br />
+        Zip code: {this.state.details.zipCode}
     </div>
     );
 }
