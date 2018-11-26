@@ -4,7 +4,7 @@ import HotelDetails from "./HotelDetails";
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import BootstrapTable from 'react-bootstrap-table-next';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
-import filterFactory from 'react-bootstrap-table2-filter'; //, { textFilter } 
+import filterFactory, { numberFilter } from 'react-bootstrap-table2-filter'; //, { textFilter } 
 import paginationFactory from 'react-bootstrap-table2-paginator';
 
 export default class ShowHotels extends Component {
@@ -48,7 +48,9 @@ export default class ShowHotels extends Component {
             }, {
                 dataField: 'zipCode',
                 text: 'Zip Code',
-                sort: true
+                sort: true,
+                filter: numberFilter()
+                
             }];
 
             const rowEvents = {
