@@ -45,6 +45,9 @@ export default class HotelDetails extends Component {
                     <h4>
                         Zip code: {this.state.details.zipCode}
                     </h4>
+                    <div>
+                     <img src={this.state.details.picture} />  
+                </div>
                 </div>
             </div>
         );
