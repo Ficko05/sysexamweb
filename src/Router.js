@@ -4,6 +4,7 @@ import Navigation from "./Navigation.js";
 import Login from "./Login.js";
 import Home from "./Home.js";
 import ShowHotels from "./ShowHotels.js";
+import Social from "./Social.js";
 
 export default class Router extends Component {
     render() {
@@ -15,6 +16,7 @@ export default class Router extends Component {
                         <Route exact path="/" component={Home} />
                         <Route path="/login" component={Login} />
                         <Route path="/hotels" component={ShowHotels}/>
+                        <Route path="/social" component={Social}/>
                     </Switch>
                 </div>
             </HashRouter>
