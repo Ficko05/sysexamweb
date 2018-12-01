@@ -31,7 +31,7 @@ export default class Social extends Component {
                     <input type="button" value="Social" onClick={this.postToSocial} />
                 </form>
                 {this.state.wasPosted && <p>
-                    Posted!
+                    Posted
                     </p>}
             </div>
         )
