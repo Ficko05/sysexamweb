@@ -67,6 +67,13 @@ class ApiFacade {
     const options = this.makeOptions("GET");
     return await fetch(URL + "/api/hotel/zip" + zip, options).then(handleHttpErrors);
   }
+  fetchHotelFromPrice = async (min, max) => { 
+    const options = this.makeOptions("GET");
+    return await fetch(URL + "/api/hotel/simple?lowestPrice="+ min +"&highestPrice="+max , options).then(handleHttpErrors);
+  }
+
+
+
   makeOptions(method, addToken, body) {
     var opts = {
       method: method,

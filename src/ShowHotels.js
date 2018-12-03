@@ -10,8 +10,10 @@ import paginationFactory from 'react-bootstrap-table2-paginator';
 export default class ShowHotels extends Component {
     constructor(props) {
         super(props);
-        this.state = { hotels: [], showDetails: false, id: 0 }
+        this.state = { hotels: [], showDetails: false, id: 0, min: null, max: null }
         this.hideDetails = this.hideDetails.bind(this);
+        this.changeHandler = this.changeHandler.bind(this);
+        this.submitHandler = this.submitHandler.bind(this);
     }
     async componentDidMount() {
         const data = await facade.fetchHotels(this.state.id);
@@ -20,6 +22,19 @@ export default class ShowHotels extends Component {
 
     hideDetails() {
         this.setState({ showDetails: false });
+    }
+    changeHandler(event) {
+        event.preventDefault();
+        this.setState({
+            min: event.target.min.value, max: event.target.max.value
+        })
+    }
+    
+    async submitHandler(event) {
+        event.preventDefault();
+
+      const data = await facade.fetchHotelFromPrice(event.target.min.value, event.target.max.value)
+        this.setState({ hotels: data });
     }
 
     render() {
@@ -54,7 +69,7 @@ export default class ShowHotels extends Component {
                 dataField: 'lowestPrice',
                 text: 'Lowest price per night',
                 sort: true,
-                filter: numberFilter(),
+                // filter: numberFilter(),
                 style: { color: 'green' }
             }];
 
@@ -71,6 +86,7 @@ export default class ShowHotels extends Component {
             return (
 
                 <div className="container">
+
                     <BootstrapTable
                         striped
                         hover
@@ -84,9 +100,9 @@ export default class ShowHotels extends Component {
                     />
 
 
-                    <form action="/action_page.php">
-                        <input type="number" name="price-min" min="1" max="5" />
-                        <input type="number" name="price-max" min="1" max="5" />
+                    <form action="/action_page.php" onChange={this.changeHandler} onSubmit={this.submitHandler}>
+                        <input type="number" name="min" min="1" max="99999" />
+                        <input type="number" name="max" min="1" max="99999" />
                         <input type="submit" />
                     </form>
 
