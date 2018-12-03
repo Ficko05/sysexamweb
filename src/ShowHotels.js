@@ -50,6 +50,12 @@ export default class ShowHotels extends Component {
                 text: 'Zip Code',
                 sort: true,
                 filter: textFilter()
+            }, {
+                dataField: 'lowestPrice',
+                text: 'Lowest price per night',
+                sort: true,
+                filter: numberFilter(),
+                style: { color: 'green' }
             }];
 
             const rowEvents = {
