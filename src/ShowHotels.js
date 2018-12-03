@@ -4,7 +4,7 @@ import HotelDetails from "./HotelDetails";
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import BootstrapTable from 'react-bootstrap-table-next';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
-import filterFactory, { numberFilter, textFilter } from 'react-bootstrap-table2-filter'; 
+import filterFactory, { numberFilter, textFilter } from 'react-bootstrap-table2-filter';
 import paginationFactory from 'react-bootstrap-table2-paginator';
 
 export default class ShowHotels extends Component {
@@ -25,7 +25,7 @@ export default class ShowHotels extends Component {
     render() {
         if (this.state.showDetails) {
             return (
-                <div>
+                <div className="container">
                     <HotelDetails id={this.state.id.id} />
                     <div className="container">
                         <button type="button" className="btn btn-success" onClick={this.hideDetails}>back</button>
