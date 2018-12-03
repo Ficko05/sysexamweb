@@ -6,7 +6,7 @@ export default class Booking extends Component {
     constructor(props) {
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.state = { startDate: '', days: 1 }
+    
     }
 
     handleSubmit(event) {
@@ -15,7 +15,9 @@ export default class Booking extends Component {
 
         var body = {
             startDate: event.target.startDate.value,
-            days: event.target.days.value
+            days: event.target.days.value,
+            roomID: this.props.roomID
+
         }
 
     

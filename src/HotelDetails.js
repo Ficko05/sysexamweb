@@ -54,7 +54,7 @@ export default class HotelDetails extends Component {
                         </div>
                     </div>
                 </div>
-                <Booking />
+                <Booking roomID={this.state.details.roomID} />
             </div>
         );
     }
