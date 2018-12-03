@@ -45,14 +45,14 @@ export default class HotelDetails extends Component {
                         </div>
                         <br />
                         <div>
-                            <h4>
-                                Zip code: {this.state.details.zipCode}
-                            </h4>
-                            <div>
-                                <img src={this.state.details.picture} />
+
+                            <img src={this.state.details.picture} />
                                 <img src={this.state.details.picture} />
                                 <img src={this.state.details.picture} />
                             </div>
+=======
+                            <img src={this.state.details.picture} />
+>>>>>>> 3bc46270689f9dfff672e2777c2165657147a12e
                         </div>
                     </div>
 
