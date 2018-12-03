@@ -42,9 +42,9 @@ class ApiFacade {
   }
 
   postBooking = async (bookingDetails) => {
-    const options = this.makeOptions("POST", localStorage.token, bookingDetails)
+    const options = this.makeOptions("POST", true, bookingDetails)
 
-    return await fetch(URL + "/api/hotel/book", options).then(handleHttpErrors);
+    return await fetch(URL + "/api/order", options).then(handleHttpErrors);
   }
 
   postToSocial = async () => {
@@ -65,7 +65,7 @@ class ApiFacade {
   }
   fetchHotelFromZip = async (zip) => { 
     const options = this.makeOptions("GET");
-    return await fetch(URL + "/api/hotel/zip" + zip, options).then(handleHttpErrors);
+    return await fetch(URL + "/api/hotel/zip/" + zip, options).then(handleHttpErrors);
   }
   fetchHotelFromPrice = async (min, max) => { 
     const options = this.makeOptions("GET");

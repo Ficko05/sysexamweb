@@ -6,23 +6,22 @@ export default class Booking extends Component {
     constructor(props) {
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
-    
+        this.state = { orderConfirmation: false };
     }
 
-    handleSubmit(event) {
+    async handleSubmit(event) {
         event.preventDefault();
-        console.log(event.target);
-
         var body = {
             startDate: event.target.startDate.value,
             days: event.target.days.value,
-            roomID: this.props.roomID
-
+            roomID: this.props.room.id
         }
 
-    
-        console.log(body)
-        facade.postBooking(body);
+        const order = await facade.postBooking(body);
+        console.log(order);
+        this.setState({ orderConfirmation: true, receipt: order });
+
+
     }
 
     handleChange(event) {
@@ -31,17 +30,36 @@ export default class Booking extends Component {
 
 
     render() {
-
-        return (
-            <div className="container">
-                <h4>Booking</h4>
-                <form onSubmit={this.handleSubmit}>
-                    <input name="startDate" type="date" />
-                    <input name="days" type="number" defaultValue="1" />
-                    <input type="submit" value="Submit" />
-
-                </form>
+        if (this.state.orderConfirmation) {
+            return (
+                <div className="container">
+                    <div>
+                        <h4>Order info</h4>
+                    </div>
+                    <div>
+                        <p>Start date: {this.state.receipt.startDate}</p>
+                    </div>
+                    <div>
+                        <p>Number of days: {this.state.receipt.days}</p>
+                    </div>
+                    <p>Price for room pr day: {this.state.receipt.roomDTO.price}</p>
+                
+                <div>
+                    <p>Total price: {this.state.receipt.roomDTO.price * this.state.receipt.days}</p>
+                </div>
             </div>
-        );
+            );
+        } else
+            return (
+                <div className="container">
+                    <h4>Booking</h4>
+                    <form onSubmit={this.handleSubmit}>
+                        <input name="startDate" type="date" />
+                        <input name="days" type="number" defaultValue="1" />
+                        <input type="submit" value="Submit" />
+
+                    </form>
+                </div>
+            );
     }
 }
