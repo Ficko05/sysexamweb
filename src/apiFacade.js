@@ -41,6 +41,12 @@ class ApiFacade {
     return await fetch(URL + "/api/hotel/simple", options).then(handleHttpErrors);
   }
 
+  postBooking = async (bookingDetails) => {
+    const options = this.makeOptions("POST", localStorage.token, bookingDetails)
+
+    return await fetch(URL + "/api/hotel/book", options).then(handleHttpErrors);
+  }
+
   postToSocial = async () => {
     const options = this.makeOptions("POST");
     //requesting authorization on social
