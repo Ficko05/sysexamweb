@@ -65,7 +65,7 @@ class ApiFacade {
   }
   fetchHotelFromZip = async (zip) => { 
     const options = this.makeOptions("GET");
-    return await fetch(URL + "/api/hotel/zip" + zip, options).then(handleHttpErrors);
+    return await fetch(URL + "/api/hotel/zip/" + zip, options).then(handleHttpErrors);
   }
   makeOptions(method, addToken, body) {
     var opts = {

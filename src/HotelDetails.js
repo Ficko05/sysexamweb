@@ -49,8 +49,6 @@ export default class HotelDetails extends Component {
                         </h4>
                         <div>
                             <img src={this.state.details.picture} />
-                            <img src={this.state.details.picture} />
-                            <img src={this.state.details.picture} />
                         </div>
                     </div>
                 </div>
