@@ -41,11 +41,32 @@ class ApiFacade {
     return await fetch(URL + "/api/hotel/simple", options).then(handleHttpErrors);
   }
 
-  fetchHotel = async (id) => {
-    const options = this.makeOptions("GET")
-    return await fetch(URL + "/api/hotel/" + id, options).then(handleHttpErrors);
+  postBooking = async (bookingDetails) => {
+    const options = this.makeOptions("POST", localStorage.token, bookingDetails)
+
+    return await fetch(URL + "/api/hotel/book", options).then(handleHttpErrors);
   }
 
+  postToSocial = async () => {
+    const options = this.makeOptions("POST");
+    //requesting authorization on social
+    return await fetch(URL + "/api/social/request_authorization", options).then(handleHttpErrors);
+  }
+
+  getStatusSocial = async (id) => {
+    const options = this.makeOptions("GET");
+    let json = await fetch(URL + "/api/social/posted_on_social?id=" + id, options).then(handleHttpErrors)
+    return json.isPosted;
+  }
+
+  fetchHotel = async (id) => {
+    const options = this.makeOptions("GET");
+    return await fetch(URL + "/api/hotel/" + id, options).then(handleHttpErrors);
+  }
+  fetchHotelFromZip = async (zip) => { 
+    const options = this.makeOptions("GET");
+    return await fetch(URL + "/api/hotel/zip" + zip, options).then(handleHttpErrors);
+  }
   makeOptions(method, addToken, body) {
     var opts = {
       method: method,

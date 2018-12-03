@@ -27,6 +27,12 @@ const Navigation = () => {
             <li>
               <Link to="/hotels">Show Hotels</Link>
             </li>
+            <li>
+              <Link exact to="/social">Social</Link>
+            </li>
+            <li>
+              <Link to="/search">search</Link>
+            </li>
           </ul>
           </div>
       </Router>

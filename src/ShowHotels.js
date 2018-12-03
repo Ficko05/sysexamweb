@@ -25,7 +25,7 @@ export default class ShowHotels extends Component {
     render() {
         if (this.state.showDetails) {
             return (
-                <div>
+                <div className="container">
                     <HotelDetails id={this.state.id.id} />
                     <div className="container">
                         <button type="button" className="btn btn-success" onClick={this.hideDetails}>back</button>
@@ -50,6 +50,12 @@ export default class ShowHotels extends Component {
                 text: 'Zip Code',
                 sort: true,
                 filter: textFilter()
+            }, {
+                dataField: 'lowestPrice',
+                text: 'Lowest price per night',
+                sort: true,
+                filter: numberFilter(),
+                style: { color: 'green' }
             }];
 
             const rowEvents = {

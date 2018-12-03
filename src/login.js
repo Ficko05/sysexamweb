@@ -17,7 +17,7 @@ class Login extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="container">
         {!this.state.loggedIn ? (<LogIn login={this.login} />) :
           (<div>
             <LoggedIn />
