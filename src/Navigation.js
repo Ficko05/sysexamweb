@@ -22,7 +22,6 @@ const Navigation = () => {
               <img src="https://cdn.discordapp.com/attachments/486794327650074626/519505405752115215/logo1.png" className="d-inline-block align-middle" alt="logo" />
             </a>
             <SearchZip />
-
             <div>
               <ul className="navbar-nav d-lg-flex align-items-lg-center">
 
@@ -98,6 +97,7 @@ const Navigation = () => {
                 </form>
               </div>
             </div>
+
           </div>
         </div>
       </div>

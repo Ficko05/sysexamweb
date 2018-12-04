@@ -19,9 +19,6 @@ export default class Social extends Component {
                 this.setState({wasPosted: true})
             }
         }, 3000);
-
-
-
     }
 
     render() {

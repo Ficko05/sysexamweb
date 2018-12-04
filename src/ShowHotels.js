@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Favourites from "./Favourites";
 import facade from "./apiFacade";
 import HotelDetails from "./HotelDetails";
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
@@ -12,6 +13,7 @@ export default class ShowHotels extends Component {
         super(props);
         this.state = { hotels: [], showDetails: false, id: 0 }
         this.hideDetails = this.hideDetails.bind(this);
+        this.onClickShowDetails = this.onClickShowDetails.bind(this);
     }
     async componentDidMount() {
         const data = await facade.fetchHotels(this.state.id);
@@ -21,12 +23,16 @@ export default class ShowHotels extends Component {
     hideDetails() {
         this.setState({ showDetails: false });
     }
+    onClickShowDetails(id) {
+        this.setState({ id: id, showDetails: true })
+        console.log(id);
+    }
 
     render() {
         if (this.state.showDetails) {
             return (
                 <div className="container">
-                    <HotelDetails id={this.state.id.id} />
+                    <HotelDetails id={this.state.id} />
                     <div className="container">
                         <button type="button" className="btn btn-success" onClick={this.hideDetails}>back</button>
                     </div>
@@ -60,10 +66,7 @@ export default class ShowHotels extends Component {
 
             const rowEvents = {
                 onClick: (e, row) => {
-
-                    let id = row.id;
-                    this.setState({ showDetails: true, id: { id } })
-
+                    this.onClickShowDetails(row.id)
                 }
             }
 
@@ -71,17 +74,22 @@ export default class ShowHotels extends Component {
             return (
 
                 <div className="container">
-                    <BootstrapTable
-                        striped
-                        hover
-                        bootstrap4
-                        keyField='id'
-                        data={this.state.hotels}
-                        columns={columns}
-                        filter={filterFactory()}
-                        pagination={paginationFactory()}
-                        rowEvents={rowEvents}
-                    />
+                    <main>
+                        <BootstrapTable
+                            striped
+                            hover
+                            bootstrap4
+                            keyField='id'
+                            data={this.state.hotels}
+                            columns={columns}
+                            filter={filterFactory()}
+                            pagination={paginationFactory()}
+                            rowEvents={rowEvents}
+                        />
+                    </main>
+                    <aside>
+                        <Favourites id={this.state.id} onClickShowDetails={this.onClickShowDetails} />
+                    </aside>
                 </div>
             );
         }
