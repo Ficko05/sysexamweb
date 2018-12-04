@@ -31,7 +31,7 @@ const Navigation = () => {
               <Link exact to="/social">Social</Link>
             </li>
             <li>
-              <Link to="/search">search</Link>
+              <Link to="/search">Search/Zip</Link>
             </li>
           </ul>
           </div>
