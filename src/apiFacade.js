@@ -40,6 +40,11 @@ class ApiFacade {
     const options = this.makeOptions("GET");
     return await fetch(URL + "/api/hotel/simple", options).then(handleHttpErrors);
   }
+  
+  fetchFavourites = async () => {
+    const options = this.makeOptions("GET");
+    return await fetch(URL + "/api/hotel/favourites", options).then(handleHttpErrors);
+  }
 
   postBooking = async (bookingDetails) => {
     const options = this.makeOptions("POST", true, bookingDetails)

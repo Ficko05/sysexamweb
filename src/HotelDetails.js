@@ -13,6 +13,7 @@ export default class HotelDetails extends Component {
     }
     async componentDidMount() {
         const data = await facade.fetchHotel(this.props.id);
+    
         this.setState({ details: data })
     }
 
