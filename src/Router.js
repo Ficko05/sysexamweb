@@ -12,7 +12,6 @@ export default class Router extends Component {
             <HashRouter>
                 <div>
                     <Navigation />
-<<<<<<< HEAD
                     <div className="content my-3">
                         <div className="row" style={{ margin: "0" }}>
                             <div className="col-7 col-sm-8 col-md-9 col-lg-10 p-3 maincontent">
@@ -27,14 +26,6 @@ export default class Router extends Component {
                             </div>
                         </div>
                     </div>
-=======
-                    <Switch>
-                        <Route exact path="/" component={Home} />
-                        <Route path="/login" component={Login} />
-                        <Route path="/hotels" component={Hotels}/>
-                        <Route path="/search" component={Search}/>
-                    </Switch>
->>>>>>> master
                 </div>
             </HashRouter>
         );
