@@ -23,7 +23,7 @@ class Registration extends Component {
             return(
 
                 <div>
-                <p>you are now Registrated </p>
+                <p>you are now signed up</p>
                 </div>
 
 
@@ -34,11 +34,11 @@ class Registration extends Component {
 
         return (
             <div>
-                <h2>Registrate</h2>
+                <h2>Sign Up</h2>
                 <form onSubmit={this.Registrate} onChange={this.onChange} >
-                    <input placeholder="User Name" id="username" />
+                    <input  placeholder="User Name" id="username" />
                     <input placeholder="Password" id="password" />
-                    <button>Registrate</button>
+                    <button>Sign Up</button>
                 </form>
             </div>
         )

@@ -36,9 +36,9 @@ const Navigation = () => {
                 <li className="nav-item active">
                   <Link className="nav-link" to="/hotels">Show Hotels</Link>
                 </li>
-                
+
                 <li className="nav-item active">
-                  <Link className="nav-link" to="/registration">Registration</Link>
+                  <Link className="nav-link" to="/registration">Sign Up</Link>
                 </li>
 
                 <li className="nav-item ml-lg-4" style={{ textAlign: "right" }}>
@@ -47,7 +47,7 @@ const Navigation = () => {
                     <i className="far fa-user-circle"></i> Log in
              </a>
                 </li>
-                
+
               </ul>
             </div>
           </nav>
@@ -87,6 +87,9 @@ const Navigation = () => {
                   <div style={{ textAlign: "right" }}>
                     <a href="#" role="button text-right" data-toggle="modal" href="#forgotpass"
                       data-target="#forgotpass" data-dismiss="modal" aria-label="Close"> Forgot Password ? </a>
+
+                    <Link className="nav-link" to="/registration">Sign Up</Link>
+
                   </div>
 
                   <button type="submit" className="btn btn-primary" name="signinbutton">Sign in</button>

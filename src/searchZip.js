@@ -65,7 +65,6 @@ export default class searchZip extends Component {
                 dataField: 'lowestPrice',
                 text: 'Lowest price per night',
                 sort: true,
-                filter: numberFilter(),
                 style: { color: 'green' }
             }];
 
