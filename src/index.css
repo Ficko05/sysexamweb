@@ -1,3 +1,4 @@
+/**
 body {
   margin: 0;
   padding: 0;
@@ -7,7 +8,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+**/
 
+/** 
 ul.header {
   list-style-type: none;
   margin: 0;
@@ -28,3 +31,4 @@ ul.header {
  ul.header li a:hover:not(.active) { background-color: #111;}
  
  .active { background-color: #4CAF50;}
+**/

@@ -44,9 +44,9 @@ export default class searchZip extends Component {
             if (!this.state.didSearch) {
                 return (
                     <div>
-                        <form>
-                            <input type="text" placeHolder="fx. 1200" value={this.state.search} onChange={this.updateSearch.bind(this)} />
-                            <button onClick={() => this.onSubmit()}>Submit</button>
+                        <form className="form-inline mx-auto formsearch">
+                            <input className="form-control mr-sm-2" type="text" placeHolder="Search fx. 1200" value={this.state.search} onChange={this.updateSearch.bind(this)} />
+                            <button className="btn btn-outline-primary my-2 my-sm-0" onClick={() => this.onSubmit()}>Search</button>
                         </form>
                     </div>
                 )
