@@ -11,22 +11,14 @@ import paginationFactory from 'react-bootstrap-table2-paginator';
 export default class ShowHotels extends Component {
     constructor(props) {
         super(props);
-        this.state = { hotels: [], showDetails: false, id: 0 }
-        this.hideDetails = this.hideDetails.bind(this);
-        this.onClickShowDetails = this.onClickShowDetails.bind(this);
+        this.state = { hotels: [] }
+
     }
     async componentDidMount() {
-        const data = await facade.fetchHotels(this.state.id);
-        this.setState({ hotels: data });
+        const hotels = await facade.fetchHotels(this.state.id);
+        this.setState({ hotels: hotels });
     }
 
-    hideDetails() {
-        this.setState({ showDetails: false });
-    }
-    onClickShowDetails(id) {
-        this.setState({ id: id, showDetails: true })
-        console.log(id);
-    }
 
     render() {
         if (this.state.showDetails) {
@@ -65,31 +57,24 @@ export default class ShowHotels extends Component {
             }];
 
             const rowEvents = {
-                onClick: (e, row) => {
-                    this.onClickShowDetails(row.id)
+                onClick: (e, hotel) => {
+                    this.props.onClickShowDetails(hotel.id)
                 }
             }
-
-
             return (
 
                 <div className="container">
-                    <main>
-                        <BootstrapTable
-                            striped
-                            hover
-                            bootstrap4
-                            keyField='id'
-                            data={this.state.hotels}
-                            columns={columns}
-                            filter={filterFactory()}
-                            pagination={paginationFactory()}
-                            rowEvents={rowEvents}
-                        />
-                    </main>
-                    <aside>
-                        <Favourites id={this.state.id} onClickShowDetails={this.onClickShowDetails} />
-                    </aside>
+                    <BootstrapTable
+                        striped
+                        hover
+                        bootstrap4
+                        keyField='id'
+                        data={this.state.hotels}
+                        columns={columns}
+                        filter={filterFactory()}
+                        pagination={paginationFactory()}
+                        rowEvents={rowEvents}
+                    />
                 </div>
             );
         }

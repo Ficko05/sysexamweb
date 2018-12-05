@@ -19,7 +19,6 @@ export default class Favourite extends Component {
                 <div class="innerdiv">
 
                     <div>
-
                         <div className="card text-white">
                             {this.state.hotels.map(hotel =>
                                 <div className
