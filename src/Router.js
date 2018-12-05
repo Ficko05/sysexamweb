@@ -3,8 +3,9 @@ import { HashRouter, Route, Switch } from "react-router-dom";
 import Navigation from "./Navigation.js";
 import Login from "./Login.js";
 import Home from "./Home.js";
-import Search from "./searchZip.js";
-import Hotels from "./Hotels.js";
+import ShowHotels from "./ShowHotels.js";
+import Social from "./Social.js";
+import SearchZip from "./SearchZip.js";
 
 export default class Router extends Component {
     render() {
@@ -12,29 +13,19 @@ export default class Router extends Component {
             <HashRouter>
                 <div>
                     <Navigation />
-<<<<<<< HEAD
                     <div className="content my-3">
                         <div className="row" style={{ margin: "0" }}>
                             <div className="col-7 col-sm-8 col-md-9 col-lg-10 p-3 maincontent">
-                                
                                 <Switch>
                                     <Route exact path="/" component={Home} />
                                     <Route path="/login" component={Login} />
                                     <Route path="/hotels" component={ShowHotels} />
                                     <Route path="/social" component={Social} />
-                                    <Route path="/search" component={search} />
+                                    <Route path="/search/:search" component={(router) => <SearchZip search={router.match.params.search}/>} />
                                 </Switch>
                             </div>
                         </div>
                     </div>
-=======
-                    <Switch>
-                        <Route exact path="/" component={Home} />
-                        <Route path="/login" component={Login} />
-                        <Route path="/hotels" component={Hotels}/>
-                        <Route path="/search" component={Search}/>
-                    </Switch>
->>>>>>> master
                 </div>
             </HashRouter>
         );
