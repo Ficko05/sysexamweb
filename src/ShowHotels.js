@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Favourites from "./Favourites";
 import facade from "./apiFacade";
 import HotelDetails from "./HotelDetails";
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
@@ -14,11 +15,14 @@ export default class ShowHotels extends Component {
         this.hideDetails = this.hideDetails.bind(this);
         this.changeHandler = this.changeHandler.bind(this);
         this.submitHandler = this.submitHandler.bind(this);
+        this.state = { hotels: [] }
+
     }
     async componentDidMount() {
-        const data = await facade.fetchHotels(this.state.id);
-        this.setState({ hotels: data });
+        const hotels = await facade.fetchHotels(this.state.id);
+        this.setState({ hotels: hotels });
     }
+
 
     hideDetails() {
         this.setState({ showDetails: false });
@@ -29,19 +33,20 @@ export default class ShowHotels extends Component {
             min: event.target.min.value, max: event.target.max.value
         })
     }
-    
+
     async submitHandler(event) {
         event.preventDefault();
 
-      const data = await facade.fetchHotelFromPrice(event.target.min.value, event.target.max.value)
+        const data = await facade.fetchHotelFromPrice(event.target.min.value, event.target.max.value)
         this.setState({ hotels: data });
     }
+
 
     render() {
         if (this.state.showDetails) {
             return (
                 <div className="container">
-                    <HotelDetails id={this.state.id.id} />
+                    <HotelDetails id={this.state.id} />
                     <div className="container">
                         <button type="button" className="btn btn-success" onClick={this.hideDetails}>back</button>
                     </div>
@@ -74,15 +79,10 @@ export default class ShowHotels extends Component {
             }];
 
             const rowEvents = {
-                onClick: (e, row) => {
-
-                    let id = row.id;
-                    this.setState({ showDetails: true, id: { id } })
-
+                onClick: (e, hotel) => {
+                    this.props.onClickShowDetails(hotel.id)
                 }
             }
-
-
             return (
 
                 <div className="container">
