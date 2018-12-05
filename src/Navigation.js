@@ -1,6 +1,6 @@
 import React from "react";
 import { HashRouter as Router, NavLink as Link } from "react-router-dom";
-import SearchZip from "./searchZip";
+import SearchInput from "./SearchInput";
 
 /*const Navigation = () => {
     return (
@@ -21,7 +21,7 @@ const Navigation = () => {
             <a className="navbar-brand" href="#/" style={{ marginLeft: "5%" }}>
               <img src="https://cdn.discordapp.com/attachments/486794327650074626/519505405752115215/logo1.png" className="d-inline-block align-middle" alt="logo" />
             </a>
-            <SearchZip />
+            <SearchInput />
             <div>
               <ul className="navbar-nav d-lg-flex align-items-lg-center">
 
@@ -35,14 +35,6 @@ const Navigation = () => {
 
                 <li className="nav-item active">
                   <Link className="nav-link" to="/hotels">Show Hotels</Link>
-                </li>
-
-                <li className="nav-item active">
-                  <Link className="nav-link" exact to="/social">Social</Link>
-                </li>
-
-                <li className="nav-item active">
-                  <Link className="nav-link" to="/search">Search</Link>
                 </li>
 
                 <li className="nav-item ml-lg-4" style={{ textAlign: "right" }}>

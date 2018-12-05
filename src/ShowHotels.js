@@ -56,7 +56,6 @@ export default class ShowHotels extends Component {
                 dataField: 'lowestPrice',
                 text: 'Lowest price per night',
                 sort: true,
-                filter: numberFilter(),
                 style: { color: 'green' }
             }];
 
