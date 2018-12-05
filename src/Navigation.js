@@ -37,14 +37,6 @@ const Navigation = () => {
                   <Link className="nav-link" to="/hotels">Show Hotels</Link>
                 </li>
 
-                <li className="nav-item active">
-                  <Link className="nav-link" exact to="/social">Social</Link>
-                </li>
-
-                <li className="nav-item active">
-                  <Link className="nav-link" to="/search">Search</Link>
-                </li>
-
                 <li className="nav-item ml-lg-4" style={{ textAlign: "right" }}>
                   <a className="nav-link" data-toggle="modal" href="#signin" data-target="#signin"
                     style={{ fontSize: "18px" }}>
