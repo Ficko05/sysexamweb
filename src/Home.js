@@ -1,7 +1,5 @@
 import React from "react";
-import facade from './apiFacade.js';
 const Home = () => {
-    facade.registration("bo", "kevin")
     return ( 
     <div className="content my-3">
         <div className="row" style={{margin: "0"}}>
