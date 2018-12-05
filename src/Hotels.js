@@ -26,8 +26,6 @@ export default class Hotels extends Component {
 
             return (
                 <div className="container">
-
-
                     <HotelDetails id={this.state.id} />
                     <div className="container">
                         <button type="button" className="btn btn-success" onClick={this.hideDetails}>back</button>
@@ -37,12 +35,7 @@ export default class Hotels extends Component {
         } else {
             return (
                 <div>
-                    <main>
-                        <ShowHotels id={this.state.id} onClickShowDetails={this.onClickShowDetails} />
-                    </main>
-                    <aside>
-                        <Favourite id={this.state.id} onClickShowDetails={this.onClickShowDetails} />
-                    </aside>
+                    <ShowHotels id={this.state.id} onClickShowDetails={this.onClickShowDetails} />
                 </div>
             );
         }

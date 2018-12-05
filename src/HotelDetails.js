@@ -3,22 +3,33 @@ import React, { Component } from "react";
 import facade from "./apiFacade";
 import Booking from "./Booking";
 
-
-
 export default class HotelDetails extends Component {
+
     constructor(props) {
         super(props);
-        this.state = { details: null }
+        this.state = { id: null, details: null }
 
     }
     async componentDidMount() {
-        const data = await facade.fetchHotel(this.props.id);
-    
-        this.setState({ details: data })
+        this.update(this.props.id);
     }
 
+    update = async (id) => {
+        console.log("update")
+        const data = await facade.fetchHotel(id);
+
+        this.setState({ details: data, id });
+    }
+
+    componentWillReceiveProps = (newProps) => {
+        console.log(newProps);
+        if (newProps.id != this.state.id) {
+            this.update(newProps.id)
+        }
+    }
 
     render() {
+
         return (
             <>
                 {this.state.details && <div className="container">
