@@ -11,6 +11,10 @@ import paginationFactory from 'react-bootstrap-table2-paginator';
 export default class ShowHotels extends Component {
     constructor(props) {
         super(props);
+        this.state = { hotels: [], showDetails: false, id: 0, min: null, max: null }
+        this.hideDetails = this.hideDetails.bind(this);
+        this.changeHandler = this.changeHandler.bind(this);
+        this.submitHandler = this.submitHandler.bind(this);
         this.state = { hotels: [] }
 
     }
@@ -21,6 +25,24 @@ export default class ShowHotels extends Component {
     onClickShowDetails(id) {
         this.setState({ id: id, showDetails: true })
         console.log(id);
+    }
+
+
+    hideDetails() {
+        this.setState({ showDetails: false });
+    }
+    changeHandler(event) {
+        event.preventDefault();
+        this.setState({
+            min: event.target.min.value, max: event.target.max.value
+        })
+    }
+
+    async submitHandler(event) {
+        event.preventDefault();
+
+        const data = await facade.fetchHotelFromPrice(event.target.min.value, event.target.max.value)
+        this.setState({ hotels: data });
     }
 
 
@@ -67,6 +89,7 @@ export default class ShowHotels extends Component {
             return (
 
                 <div className="container">
+
                     <BootstrapTable
                         striped
                         hover
@@ -78,7 +101,19 @@ export default class ShowHotels extends Component {
                         pagination={paginationFactory()}
                         rowEvents={rowEvents}
                     />
+
+
+                    <form action="/action_page.php" onChange={this.changeHandler} onSubmit={this.submitHandler}>
+                        <input type="number" name="min" min="1" max="99999" />
+                        <input type="number" name="max" min="1" max="99999" />
+                        <input type="submit" />
+                    </form>
+
                 </div>
+
+
+
+
             );
         }
     }

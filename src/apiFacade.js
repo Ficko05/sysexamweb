@@ -31,6 +31,13 @@ class ApiFacade {
       .then(res => { this.setToken(res.token) })
   }
 
+  registration = async (userName, userPass) => {
+    const options = this.makeOptions("POST", false, { userName: userName, userPass: userPass });
+    return await fetch(URL + "/api/info", options)
+      .then(handleHttpErrors)
+      .then(res => { this.setToken(res.token) })
+  }
+
   fetchData = () => {
     const options = this.makeOptions("GET", true); //True add's the token
     return fetch(URL + "/api/info/user", options).then(handleHttpErrors);
@@ -72,6 +79,13 @@ class ApiFacade {
     const options = this.makeOptions("GET");
     return await fetch(URL + "/api/hotel/zip/" + zip, options).then(handleHttpErrors);
   }
+  fetchHotelFromPrice = async (min, max) => { 
+    const options = this.makeOptions("GET");
+    return await fetch(URL + "/api/hotel/simple?lowestPrice="+ min +"&highestPrice="+max , options).then(handleHttpErrors);
+  }
+
+
+
   makeOptions(method, addToken, body) {
     var opts = {
       method: method,

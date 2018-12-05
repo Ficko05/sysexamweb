@@ -36,6 +36,10 @@ const Navigation = () => {
                 <li className="nav-item active">
                   <Link className="nav-link" to="/hotels">Show Hotels</Link>
                 </li>
+                
+                <li className="nav-item active">
+                  <Link className="nav-link" to="/registration">Registration</Link>
+                </li>
 
                 <li className="nav-item ml-lg-4" style={{ textAlign: "right" }}>
                   <a className="nav-link" data-toggle="modal" href="#signin" data-target="#signin"
@@ -43,7 +47,7 @@ const Navigation = () => {
                     <i className="far fa-user-circle"></i> Log in
              </a>
                 </li>
-
+                
               </ul>
             </div>
           </nav>
@@ -76,11 +80,11 @@ const Navigation = () => {
 
                   <div className="form-check">
                     <input type="checkbox" className="form-check-input" id="RememberMe" name="RememberMe"
-                      style={{marginLeft: "0", marginTop: "6px"}}/>
+                      style={{ marginLeft: "0", marginTop: "6px" }} />
                     <label className="form-check-label" for="RememberMe">Remember Me</label>
                   </div>
 
-                  <div style={{textAlign: "right"}}>
+                  <div style={{ textAlign: "right" }}>
                     <a href="#" role="button text-right" data-toggle="modal" href="#forgotpass"
                       data-target="#forgotpass" data-dismiss="modal" aria-label="Close"> Forgot Password ? </a>
                   </div>
