@@ -5,6 +5,7 @@ import Login from "./Login.js";
 import Home from "./Home.js";
 import Registration from "./Registration.js";
 import Hotels from "./Hotels.js";
+import SearchZip from "./SearchZip.js";
 
 export default class Router extends Component {
     render() {
@@ -21,6 +22,8 @@ export default class Router extends Component {
                                     <Route path="/login" component={Login} />
                                     <Route path="/registration" component={Registration} />
                                     <Route path="/hotels" component={Hotels} />
+                                    <Route path="/search/:search" component={(router) => <SearchZip search={router.match.params.search}/>} />
+
                                 </Switch>
                             </div>
                         </div>
