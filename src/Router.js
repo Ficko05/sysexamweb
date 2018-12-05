@@ -3,10 +3,8 @@ import { HashRouter, Route, Switch } from "react-router-dom";
 import Navigation from "./Navigation.js";
 import Login from "./Login.js";
 import Home from "./Home.js";
-import Search from "./searchZip.js";
 import Registration from "./Registration.js";
-import ShowHotels from "./ShowHotels.js";
-import Social from "./Social.js";
+import Hotels from "./Hotels.js";
 
 export default class Router extends Component {
     render() {
@@ -21,10 +19,8 @@ export default class Router extends Component {
                                 <Switch>
                                     <Route exact path="/" component={Home} />
                                     <Route path="/login" component={Login} />
-                                    <Route path="/hotels" component={ShowHotels} />
-                                    <Route path="/social" component={Social} />
-                                    <Route path="/search" component={Search} />
                                     <Route path="/registration" component={Registration} />
+                                    <Route path="/hotels" component={Hotels} />
                                 </Switch>
                             </div>
                         </div>
