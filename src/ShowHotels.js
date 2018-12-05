@@ -22,6 +22,10 @@ export default class ShowHotels extends Component {
         const hotels = await facade.fetchHotels(this.state.id);
         this.setState({ hotels: hotels });
     }
+    onClickShowDetails(id) {
+        this.setState({ id: id, showDetails: true })
+        console.log(id);
+    }
 
 
     hideDetails() {
@@ -79,7 +83,7 @@ export default class ShowHotels extends Component {
 
             const rowEvents = {
                 onClick: (e, hotel) => {
-                    this.props.onClickShowDetails(hotel.id)
+                    this.onClickShowDetails(hotel.id)
                 }
             }
             return (
