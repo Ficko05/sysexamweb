@@ -33,6 +33,9 @@ const Navigation = () => {
             <li>
               <Link to="/search">Search/Zip</Link>
             </li>
+            <li>
+              <Link to="/registration">Registration</Link>
+            </li>
           </ul>
           </div>
       </Router>

@@ -31,6 +31,13 @@ class ApiFacade {
       .then(res => { this.setToken(res.token) })
   }
 
+  registration = async (userName, userPass) => {
+    const options = this.makeOptions("POST", false, { userName: userName, userPass: userPass });
+    return await fetch(URL + "/api/info", options)
+      .then(handleHttpErrors)
+      .then(res => { this.setToken(res.token) })
+  }
+
   fetchData = () => {
     const options = this.makeOptions("GET", true); //True add's the token
     return fetch(URL + "/api/info/user", options).then(handleHttpErrors);
