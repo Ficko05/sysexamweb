@@ -19,9 +19,8 @@ export default class Router extends Component {
                                 <Switch>
                                     <Route exact path="/" component={Home} />
                                     <Route path="/login" component={Login} />
-                                    <Route path="/hotels" component={ShowHotels} />
-                                    <Route path="/social" component={Social} />
-                                    <Route path="/search" component={search} />
+                                    <Route path="/hotels" component={Hotels} />
+                                    <Route path="/search" component={Search} />
                                 </Switch>
                             </div>
                         </div>
