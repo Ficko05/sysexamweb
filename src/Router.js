@@ -5,8 +5,14 @@ import Login from "./Login.js";
 import Home from "./Home.js";
 import Search from "./searchZip.js";
 import Hotels from "./Hotels.js";
+import Favourite from "./Favourites.js";
 
 export default class Router extends Component {
+    constructor(props){
+        super(props);
+
+    }
+
     render() {
         return (
             <HashRouter>
@@ -14,6 +20,7 @@ export default class Router extends Component {
                     <Navigation />
                     <div className="content my-3">
                         <div className="row" style={{ margin: "0" }}>
+
                             <div className="col-7 col-sm-8 col-md-9 col-lg-10 p-3 maincontent">
                                 
                                 <Switch>
@@ -23,6 +30,7 @@ export default class Router extends Component {
                                     <Route path="/search" component={Search} />
                                 </Switch>
                             </div>
+                            <Favourite />
                         </div>
                     </div>
                 </div>

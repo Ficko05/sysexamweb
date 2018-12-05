@@ -7,12 +7,18 @@ import facade from "./apiFacade";
 export default class Favourite extends Component {
     constructor(props) {
         super(props);
-        this.state = { hotels: [] };
+        this.state = { hotels: [], showDetails: false };
     }
     async componentDidMount() {
         const hotels = await facade.fetchFavourites()
         this.setState({ hotels: hotels });
     }
+
+    onClickShowDetails(id) {
+        this.setState({ id: id, showDetails: true })
+        console.log(id);
+    }
+
     render() {
         return (
             <div class="col-5 col-sm-4 col-md-3 col-lg-2 sidebar shadow ml-auto">
@@ -22,7 +28,7 @@ export default class Favourite extends Component {
                         <div className="card text-white">
                             {this.state.hotels.map(hotel =>
                                 <div className
-                                    ="card text-white" onClick={() => this.props.onClickShowDetails(hotel.id)}>
+                                    ="card text-white" onClick={() => this.onClickShowDetails(hotel.id)}>
                                     <img className
                                         ="card-img" src={hotel.picture} alt="Card image" />
                                     <div className
