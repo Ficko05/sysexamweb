@@ -8,14 +8,20 @@ import Hotels from "./Hotels.js";
 import Favourite from "./Favourites.js";
 import SearchZip from "./SearchZip.js";
 import HotelDetails from "./HotelDetails.js";
+import facade from "./apiFacade";
+import Orders from "./Order.js";
 
 export default class Router extends Component {
     constructor(props){
         super(props);
 
     }
+    //<Route path="/orders" component={Orders} />
 
     render() {
+
+console.log(facade.loggedIn());
+
         return (
             <HashRouter>
                 <div>
@@ -30,6 +36,7 @@ export default class Router extends Component {
                                     <Route path="/login" component={Login} />
                                     <Route path="/registration" component={Registration} />
                                     <Route path="/hotels" component={Hotels} />
+                                    {facade.loggedIn() && <Route path="/orders" component={Orders} />}
                                     <Route path="/search/:search" component={(router) => <SearchZip search={router.match.params.search}/>} />
                                     <Route path="/HotelDetails/:id" component={(router) => <HotelDetails id={router.match.params.id}/>} />
                                     

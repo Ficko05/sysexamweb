@@ -41,6 +41,10 @@ const Navigation = () => {
                   <Link className="nav-link" to="/registration">Sign Up</Link>
                 </li>
 
+                <li className="nav-item active">
+                  <Link className="nav-link" to="/orders">Orders</Link>
+                </li>
+
                 <li className="nav-item ml-lg-4" style={{ textAlign: "right" }}>
                   <a className="nav-link" data-toggle="modal" href="#signin" data-target="#signin"
                     style={{ fontSize: "18px" }}>
