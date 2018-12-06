@@ -7,13 +7,19 @@ class Login extends Component {
     super(props);
     this.state = { loggedIn: false }
   }
+
   logout = () => {
     facade.logout();
     this.setState({ loggedIn: false });
+    this.props.onChange();
   }
   login = (user, pass) => {
     facade.login(user, pass)
-      .then(res => this.setState({ loggedIn: true }));
+      .then(res => this.setState({ loggedIn: true }, () => {
+    this.props.onChange();
+
+      }));
+      
   }
   render() {
     return (
