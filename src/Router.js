@@ -3,17 +3,12 @@ import { HashRouter, Route, Switch } from "react-router-dom";
 import Navigation from "./Navigation.js";
 import Login from "./Login.js";
 import Home from "./Home.js";
-import Registration from "./Registration.js";
 import Hotels from "./Hotels.js";
 import Favourite from "./Favourites.js";
 import SearchZip from "./SearchZip.js";
 import HotelDetails from "./HotelDetails.js";
 
 export default class Router extends Component {
-    constructor(props) {
-        super(props);
-
-    }
 
     render() {
         return (
@@ -26,7 +21,6 @@ export default class Router extends Component {
                                 <Switch>
                                     <Route exact path="/" component={Home} />
                                     <Route path="/login" component={Login} />
-                                    <Route path="/registration" component={Registration} />
                                     <Route path="/hotels" component={Hotels} />
                                     <Route path="/search/:search" component={(router) => <SearchZip search={router.match.params.search} />} />
                                     <Route path="/HotelDetails/:id" component={(router) => <HotelDetails id={router.match.params.id} />} />
@@ -38,7 +32,6 @@ export default class Router extends Component {
                 </div>
             </HashRouter>
         );
+
     }
 }
-
-

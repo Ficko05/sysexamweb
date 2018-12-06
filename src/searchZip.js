@@ -12,7 +12,7 @@ export default class searchZip extends Component {
         super(props);
         this.state = { hotels: [], showDetails: false }
         this.hideDetails = this.hideDetails.bind(this);
-        if (props.search != undefined)
+        if (props.search !==  undefined)
             this.update(props.search);
     }
 
@@ -65,6 +65,7 @@ export default class searchZip extends Component {
                 dataField: 'lowestPrice',
                 text: 'Lowest price per night',
                 sort: true,
+                filter: numberFilter(),
                 style: { color: 'green' }
             }];
 
@@ -76,7 +77,6 @@ export default class searchZip extends Component {
 
                 }
             }
-
 
             return (
 

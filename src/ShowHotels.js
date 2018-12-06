@@ -11,10 +11,6 @@ import paginationFactory from 'react-bootstrap-table2-paginator';
 export default class ShowHotels extends Component {
     constructor(props) {
         super(props);
-        this.state = { hotels: [], showDetails: false, id: 0, min: null, max: null }
-        this.hideDetails = this.hideDetails.bind(this);
-        this.changeHandler = this.changeHandler.bind(this);
-        this.submitHandler = this.submitHandler.bind(this);
         this.state = { hotels: [] }
 
     }
@@ -26,25 +22,6 @@ export default class ShowHotels extends Component {
         this.setState({ id: id, showDetails: true })
         console.log(id);
     }
-
-
-    hideDetails() {
-        this.setState({ showDetails: false });
-    }
-    changeHandler(event) {
-        event.preventDefault();
-        this.setState({
-            min: event.target.min.value, max: event.target.max.value
-        })
-    }
-
-    async submitHandler(event) {
-        event.preventDefault();
-
-        const data = await facade.fetchHotelFromPrice(event.target.min.value, event.target.max.value)
-        this.setState({ hotels: data });
-    }
-
 
     render() {
         if (this.state.showDetails) {
@@ -88,9 +65,14 @@ export default class ShowHotels extends Component {
             }
             return (
 
+<<<<<<< HEAD
                 <div>
 
                     <BootstrapTable className="table table-striped table-hover table-responsive"
+=======
+                <div className="container">
+                    <BootstrapTable
+>>>>>>> 4052d1d912750c06b7155f9ece69cb70488aaee5
                         striped
                         hover
                         bootstrap4
@@ -101,6 +83,7 @@ export default class ShowHotels extends Component {
                         pagination={paginationFactory()}
                         rowEvents={rowEvents}
                     />
+<<<<<<< HEAD
 
 
                     <form className="form-inline mx-auto formsearch" action="/action_page.php" onChange={this.changeHandler} onSubmit={this.submitHandler}>
@@ -109,11 +92,9 @@ export default class ShowHotels extends Component {
                         <button className="btn btn-outline-primary my-2 my-sm-0" type="submit">Submit</button>
                     </form>
 
+=======
+>>>>>>> 4052d1d912750c06b7155f9ece69cb70488aaee5
                 </div>
-
-
-
-
             );
         }
     }
