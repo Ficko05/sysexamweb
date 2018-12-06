@@ -19,10 +19,7 @@ export default class Favourite extends Component {
     onClickShowDetails(hotel) {
         this.redirect = true;
         this.setState({ id: hotel.id }, () => this.redirect = false)
-
     }
-
-
 
     render() {
         return (

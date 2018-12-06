@@ -22,10 +22,7 @@ class Login extends Component {
       
   }
   render() {
-
-    console.log("render");
-    console.log(this.state);
-
+    
     return (
       <div className="container">
         {!this.state.loggedIn ? (<LogIn login={this.login} />) :
