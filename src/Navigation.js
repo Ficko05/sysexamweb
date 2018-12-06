@@ -1,6 +1,7 @@
 import React from "react";
 import { HashRouter as Router, NavLink as Link } from "react-router-dom";
 import SearchInput from "./SearchInput";
+import facade from "./apiFacade";
 
 /*const Navigation = () => {
     return (
@@ -40,6 +41,10 @@ const Navigation = () => {
                 <li className="nav-item active">
                   <Link className="nav-link" to="/registration">Sign Up</Link>
                 </li>
+
+                {facade.getToken() && <li className="nav-item active">
+                  <Link className="nav-link" to="/orders">Orders</Link>
+                </li>}
 
                 <li className="nav-item ml-lg-4" style={{ textAlign: "right" }}>
                   <a className="nav-link" data-toggle="modal" href="#signin" data-target="#signin"

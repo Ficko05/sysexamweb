@@ -1,5 +1,6 @@
 import React from "react";
-const Home = () => {
+import facade from "./apiFacade";
+const Home = (props) => {
     return ( 
     <div className="content my-3">
         <div className="row" style={{margin: "0"}}>

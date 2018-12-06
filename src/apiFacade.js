@@ -14,7 +14,7 @@ class ApiFacade {
     localStorage.setItem('jwtToken', token)
   }
   getToken = () => {
-    return localStorage.getItem('jwtToken')
+    return localStorage.getItem('jwtToken');
   }
   loggedIn = () => {
     const loggedIn = this.getToken() != null;
@@ -45,7 +45,7 @@ class ApiFacade {
 
   fetchOrders = async () => {
     const options = this.makeOptions("GET", true);
-    return await fetch(URL + "/api/order", options).then(handleHttpErrors);
+    return await fetch(URL + "/api/order", options).then(handleHttpErrors); 
   }
 
   fetchHotels = async () => {

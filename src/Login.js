@@ -1,21 +1,31 @@
 import React, { Component } from "react";
 import facade from "./apiFacade";
 
-
 class Login extends Component {
   constructor(props) {
     super(props);
-    this.state = { loggedIn: false }
+    this.state = { loggedIn: facade.loggedIn() }
   }
+
   logout = () => {
     facade.logout();
-    this.setState({ loggedIn: false });
+    this.setState({ loggedIn: false }, () => {
+      this.props.onChange()
+    });
   }
   login = (user, pass) => {
     facade.login(user, pass)
-      .then(res => this.setState({ loggedIn: true }));
+      .then(res => this.setState({ loggedIn: true }, () => {
+    this.props.onChange();
+
+      }));
+      
   }
   render() {
+
+    console.log("render");
+    console.log(this.state);
+
     return (
       <div className="container">
         {!this.state.loggedIn ? (<LogIn login={this.login} />) :

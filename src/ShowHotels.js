@@ -11,7 +11,12 @@ import paginationFactory from 'react-bootstrap-table2-paginator';
 export default class ShowHotels extends Component {
     constructor(props) {
         super(props);
-        this.state = { hotels: [] }
+        this.state = { hotels: [], showDetails: false, id: 0, min: null, max: null };
+        this.onClickShowDetails = this.onClickShowDetails.bind(this);
+        this.changeHandler = this.changeHandler.bind(this);
+        this.submitHandler = this.submitHandler.bind(this);
+        console.log(this.state)
+
 
     }
     async componentDidMount() {
@@ -21,6 +26,16 @@ export default class ShowHotels extends Component {
     onClickShowDetails(id) {
         this.setState({ id: id, showDetails: true })
         console.log(id);
+    }
+
+    async submitHandler(event) {
+        event.preventDefault();
+        const hotels = await facade.fetchHotelFromPrice(event.target.min.value, event.target.max.value);
+        this.setState({ hotels: hotels });
+    }
+    changeHandler(event) {
+        event.preventDefault();
+        this.setState({ min: event.target.min.value, max: event.target.max.value });
     }
 
     render() {
