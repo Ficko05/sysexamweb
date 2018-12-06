@@ -65,14 +65,9 @@ export default class ShowHotels extends Component {
             }
             return (
 
-<<<<<<< HEAD
                 <div>
 
                     <BootstrapTable className="table table-striped table-hover table-responsive"
-=======
-                <div className="container">
-                    <BootstrapTable
->>>>>>> 4052d1d912750c06b7155f9ece69cb70488aaee5
                         striped
                         hover
                         bootstrap4
@@ -83,17 +78,13 @@ export default class ShowHotels extends Component {
                         pagination={paginationFactory()}
                         rowEvents={rowEvents}
                     />
-<<<<<<< HEAD
-
 
                     <form className="form-inline mx-auto formsearch" action="/action_page.php" onChange={this.changeHandler} onSubmit={this.submitHandler}>
-                        <input className="form-control mr-sm-2" type="text" name="min" placeholder="Minimum Price"/>
-                        <input className="form-control mr-sm-2" type="text" name="max" placeholder="Maximum Price"/>
+                        <input className="form-control mr-sm-2" type="text" name="min" placeholder="Minimum Price" />
+                        <input className="form-control mr-sm-2" type="text" name="max" placeholder="Maximum Price" />
                         <button className="btn btn-outline-primary my-2 my-sm-0" type="submit">Submit</button>
                     </form>
 
-=======
->>>>>>> 4052d1d912750c06b7155f9ece69cb70488aaee5
                 </div>
             );
         }
