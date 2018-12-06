@@ -35,10 +35,10 @@ class Registration extends Component {
         return (
             <div>
                 <h2>Sign Up</h2>
-                <form onSubmit={this.Registrate} onChange={this.onChange} >
-                    <input  placeholder="User Name" id="username" />
-                    <input placeholder="Password" id="password" />
-                    <button>Sign Up</button>
+                <form className="form-inline mx-auto formsearch" onSubmit={this.Registrate} onChange={this.onChange} >
+                    <input className="form-control mr-sm-2" placeholder="User Name" id="username" />
+                    <input className="form-control mr-sm-2" placeholder="Password" id="password" />
+                    <button className="btn btn-outline-primary my-2 my-sm-0">Create</button>
                 </form>
             </div>
         )

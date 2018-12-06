@@ -88,9 +88,9 @@ export default class ShowHotels extends Component {
             }
             return (
 
-                <div className="container">
+                <div>
 
-                    <BootstrapTable
+                    <BootstrapTable className="table table-striped table-hover table-responsive"
                         striped
                         hover
                         bootstrap4
@@ -103,10 +103,10 @@ export default class ShowHotels extends Component {
                     />
 
 
-                    <form action="/action_page.php" onChange={this.changeHandler} onSubmit={this.submitHandler}>
-                        <input type="number" name="min" min="1" max="99999" />
-                        <input type="number" name="max" min="1" max="99999" />
-                        <input type="submit" />
+                    <form className="form-inline mx-auto formsearch" action="/action_page.php" onChange={this.changeHandler} onSubmit={this.submitHandler}>
+                        <input className="form-control mr-sm-2" type="text" name="min" placeholder="Minimum Price"/>
+                        <input className="form-control mr-sm-2" type="text" name="max" placeholder="Maximum Price"/>
+                        <button className="btn btn-outline-primary my-2 my-sm-0" type="submit">Submit</button>
                     </form>
 
                 </div>

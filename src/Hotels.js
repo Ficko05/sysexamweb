@@ -28,7 +28,7 @@ export default class Hotels extends Component {
                 <div className="container">
                     <HotelDetails id={this.state.id} />
                     <div className="container">
-                        <button type="button" className="btn btn-success" onClick={this.hideDetails}>back</button>
+                        <button type="button" className="btn btn-outline-primary my-2 my-sm-0" onClick={this.hideDetails}>back</button>
                     </div>
                 </div>
             );
