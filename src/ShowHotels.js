@@ -79,10 +79,9 @@ export default class ShowHotels extends Component {
                         rowEvents={rowEvents}
                     />
 
-
                     <form className="form-inline mx-auto formsearch" action="/action_page.php" onChange={this.changeHandler} onSubmit={this.submitHandler}>
-                        <input className="form-control mr-sm-2" type="text" name="min" placeholder="Minimum Price"/>
-                        <input className="form-control mr-sm-2" type="text" name="max" placeholder="Maximum Price"/>
+                        <input className="form-control mr-sm-2" type="text" name="min" placeholder="Minimum Price" />
+                        <input className="form-control mr-sm-2" type="text" name="max" placeholder="Maximum Price" />
                         <button className="btn btn-outline-primary my-2 my-sm-0" type="submit">Submit</button>
                     </form>
 
