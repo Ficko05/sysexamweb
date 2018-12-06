@@ -9,6 +9,7 @@ import SearchZip from "./SearchZip.js";
 import HotelDetails from "./HotelDetails.js";
 import facade from "./apiFacade";
 import Orders from "./Order.js";
+import Registration from "./Registration.js";
 
 export default class Router extends Component {
     constructor(props){
