@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import facade from "./apiFacade";
 import { Redirect } from "react-router-dom";
+import "./Favourites.css";
 
 
 export default class Favourite extends Component {
