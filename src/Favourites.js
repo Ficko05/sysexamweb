@@ -20,24 +20,16 @@ export default class Favourite extends Component {
         this.setState({ id: hotel.id }, () => this.redirect = false)
 
     }
-<<<<<<< HEAD
 
 
-=======
->>>>>>> 4052d1d912750c06b7155f9ece69cb70488aaee5
 
     render() {
         return (
             <div className="col-5 col-sm-4 col-md-3 col-lg-2 sidebar shadow ml-auto">
-                {this.redirect && <Redirect to={"/HotelDetails/" + this.state.id} />}
                 <div className="innerdiv">
-<<<<<<< HEAD
+                    {this.redirect && <Redirect to={"/HotelDetails/" + this.state.id} />}
                     {this.state.hotels.map(hotel =>
                         <div>
-=======
-                    <div>
-                        {this.state.hotels.map(hotel =>
->>>>>>> 4052d1d912750c06b7155f9ece69cb70488aaee5
                             <div key={hotel.id} className="card text-white">
                                 <div className="card text-white" onClick={() => this.onClickShowDetails(hotel)}>
                                     <img className="card-img" src={hotel.picture} alt="Card image" />

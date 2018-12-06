@@ -26,10 +26,10 @@ export default class ShowHotels extends Component {
     render() {
         if (this.state.showDetails) {
             return (
-                <div className="container">
+                <div>
                     <HotelDetails id={this.state.id} />
-                    <div className="container">
-                        <button type="button" className="btn btn-success" onClick={this.hideDetails}>back</button>
+                    <div>
+                        <button type="button" className="btn btn-outline-primary my-2 my-sm-0" onClick={this.hideDetails}>back</button>
                     </div>
                 </div>
             );
@@ -65,14 +65,9 @@ export default class ShowHotels extends Component {
             }
             return (
 
-<<<<<<< HEAD
                 <div>
 
                     <BootstrapTable className="table table-striped table-hover table-responsive"
-=======
-                <div className="container">
-                    <BootstrapTable
->>>>>>> 4052d1d912750c06b7155f9ece69cb70488aaee5
                         striped
                         hover
                         bootstrap4
@@ -83,7 +78,6 @@ export default class ShowHotels extends Component {
                         pagination={paginationFactory()}
                         rowEvents={rowEvents}
                     />
-<<<<<<< HEAD
 
 
                     <form className="form-inline mx-auto formsearch" action="/action_page.php" onChange={this.changeHandler} onSubmit={this.submitHandler}>
@@ -92,8 +86,6 @@ export default class ShowHotels extends Component {
                         <button className="btn btn-outline-primary my-2 my-sm-0" type="submit">Submit</button>
                     </form>
 
-=======
->>>>>>> 4052d1d912750c06b7155f9ece69cb70488aaee5
                 </div>
             );
         }

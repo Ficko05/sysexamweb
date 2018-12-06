@@ -26,8 +26,8 @@ export default class Router extends Component {
                                     <Route path="/HotelDetails/:id" component={(router) => <HotelDetails id={router.match.params.id} />} />
                                 </Switch>
                             </div>
+                            <Favourite />
                         </div>
-                        <Favourite />
                     </section>
                 </div>
             </HashRouter>

@@ -45,7 +45,7 @@ class ApiFacade {
 
   fetchOrders = async () => {
     const options = this.makeOptions("GET", true);
-    return await fetch(URL + "/api/order", options).then(handleHttpErrors);S
+    return await fetch(URL + "/api/order", options).then(handleHttpErrors);
   }
 
   fetchHotels = async () => {
