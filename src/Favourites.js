@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import HotelDetails from "./HotelDetails";
 import facade from "./apiFacade";
 import { Redirect } from "react-router-dom";
 
@@ -18,17 +17,15 @@ export default class Favourite extends Component {
 
     onClickShowDetails(hotel) {
         this.redirect = true;
-        this.setState({ id: hotel.id}, () => this.redirect = false)
+        this.setState({ id: hotel.id }, () => this.redirect = false)
 
     }
-  
-
 
     render() {
         return (
-            <div class="col-5 col-sm-4 col-md-3 col-lg-2 sidebar shadow ml-auto">
+            <div className="col-5 col-sm-4 col-md-3 col-lg-2 sidebar shadow ml-auto">
                 {this.redirect && <Redirect to={"/HotelDetails/" + this.state.id} />}
-                <div class="innerdiv">
+                <div className="innerdiv">
                     <div>
                         {this.state.hotels.map(hotel =>
                             <div key={hotel.id} className="card text-white">

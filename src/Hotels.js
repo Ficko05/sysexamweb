@@ -23,7 +23,6 @@ export default class Hotels extends Component {
 
     render() {
         if (this.state.showDetails) {
-
             return (
                 <div className="container">
                     <HotelDetails id={this.state.id} />
