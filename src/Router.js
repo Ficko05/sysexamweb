@@ -36,7 +36,8 @@ console.log(facade.loggedIn());
                                     <Route path="/login" component={Login} />
                                     <Route path="/registration" component={Registration} />
                                     <Route path="/hotels" component={Hotels} />
-                                    {facade.loggedIn() && <Route path="/orders" component={Orders} />}
+                                    {/*facade.loggedIn() && <Route path="/orders" component={Orders} />*/}
+                                    <Route path="/orders" component={Orders} />
                                     <Route path="/search/:search" component={(router) => <SearchZip search={router.match.params.search}/>} />
                                     <Route path="/HotelDetails/:id" component={(router) => <HotelDetails id={router.match.params.id}/>} />
                                     
