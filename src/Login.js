@@ -27,7 +27,7 @@ class Login extends Component {
         {!this.state.loggedIn ? (<LogIn login={this.login} />) :
           (<div>
             <LoggedIn />
-            <button onClick={this.logout}>Logout</button>
+            <button className="btn btn-outline-primary my-2 my-sm-0" onClick={this.logout}>Logout</button>
           </div>)}
       </div>
     )
@@ -50,7 +50,7 @@ class LogIn extends Component {
     return (
       <div>
         <h2>Login</h2>
-        <form onSubmit={this.login} onChange={this.onChange} >
+        <form className="form-inline mx-auto formsearch" onSubmit={this.login} onChange={this.onChange} >
           <input className="form-control mr-sm-2" placeholder="User Name" id="username" />
           <input className="form-control mr-sm-2" placeholder="Password" id="password" />
           <button className="btn btn-outline-primary my-2 my-sm-0">Login</button>

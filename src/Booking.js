@@ -44,7 +44,7 @@ export default class Booking extends Component {
     render() {
         if (this.state.orderConfirmation) {
             return (
-                <div className="container">
+                <div>
                     <div>
                         <h4>Order info</h4>
                     </div>
@@ -61,7 +61,7 @@ export default class Booking extends Component {
                     </div>
                     <div>
                         <form>
-                            <input type="button" value="Social" onClick={this.postToSocial} />
+                            <button type="button" value="Social" onClick={this.postToSocial}>Social</button>
                         </form>
                         {this.state.wasPosted && <p>
                             Posted
@@ -73,10 +73,10 @@ export default class Booking extends Component {
             return (
                 <div className="container">
                     <h4>Booking</h4>
-                    <form onSubmit={this.handleSubmit}>
-                        <input name="startDate" type="date" />
-                        <input name="days" type="number" defaultValue="1" />
-                        <input type="submit" value="Submit" />
+                    <form className="form-inline mx-auto formsearch" onSubmit={this.handleSubmit}>
+                        <input className="form-control mr-sm-2" name="startDate" type="date" />
+                        <input className="form-control mr-sm-2" name="days" type="number" defaultValue="1" />
+                        <button className="btn btn-outline-primary my-2 my-sm-0" type="submit" value="Submit">Submit</button>
 
                     </form>
                 </div>
