@@ -14,7 +14,7 @@ class ApiFacade {
     localStorage.setItem('jwtToken', token)
   }
   getToken = () => {
-    return localStorage.getItem('jwtToken')
+    return localStorage.getItem('jwtToken');
   }
   loggedIn = () => {
     const loggedIn = this.getToken() != null;

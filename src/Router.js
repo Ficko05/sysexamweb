@@ -14,13 +14,14 @@ import Orders from "./Order.js";
 export default class Router extends Component {
     constructor(props){
         super(props);
-
+        this.state = {};
     }
-    //<Route path="/orders" component={Orders} />
+
+    rerender = () => {
+        this.setState({});
+    }
 
     render() {
-
-console.log(facade.loggedIn());
 
         return (
             <HashRouter>
@@ -32,8 +33,8 @@ console.log(facade.loggedIn());
 
                             <div className="col-7 col-sm-8 col-md-9 col-lg-10 p-3 maincontent">
                                 <Switch>
-                                    <Route exact path="/" component={Home} />
-                                    <Route path="/login" component={Login} />
+                                    <Route exact path="/" component={() => <Home onChange={this.rerender}/>} />
+                                    <Route path="/login" component={() => <Login onChange={this.rerender} />} />
                                     <Route path="/registration" component={Registration} />
                                     <Route path="/hotels" component={Hotels} />
                                     {facade.loggedIn() && <Route path="/orders" component={Orders} />}
