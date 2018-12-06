@@ -11,36 +11,28 @@ import paginationFactory from 'react-bootstrap-table2-paginator';
 export default class Order extends Component {
   constructor(props) {
     super(props);
-    this.state = { orders: [], showDetails: false, id: 0}
+    this.state = { orders: [], showDetails: false, id: 0 }
     this.hideDetails = this.hideDetails.bind(this);
-    this.changeHandler = this.changeHandler.bind(this);
-    this.submitHandler = this.submitHandler.bind(this);
     this.state = { orders: [] }
-
   }
+
   async componentDidMount() {
-    const orders = await facade.fetchOrders(this.state.id);
+
+    let orders = await facade.fetchOrders(this.state.id);
+    orders.map(order => {
+      order.roomprice = order.roomDTO.price;
+    })
+
     this.setState({ orders: orders });
   }
+
   onClickShowDetails(id) {
     this.setState({ id: id, showDetails: true })
     console.log(id);
   }
+
   hideDetails() {
     this.setState({ showDetails: false });
-  }
-  changeHandler(event) {
-    event.preventDefault();
-    this.setState({
-      min: event.target.min.value, max: event.target.max.value
-    })
-  }
-
-  async submitHandler(event) {
-    event.preventDefault();
-
-    const data = await facade.fetchHotelFromPrice(event.target.min.value, event.target.max.value)
-    this.setState({ hotels: data });
   }
 
   render() {
@@ -55,14 +47,10 @@ export default class Order extends Component {
       );
     } else {
       const columns = [{
-        dataField: 'name',
-        text: 'Name',
-        sort: true,
-      }, {
         dataField: 'days',
         text: 'days',
       }, {
-        dataField: 'price',
+        dataField: 'roomprice',
         text: 'price',
         sort: true
       }, {
@@ -76,6 +64,7 @@ export default class Order extends Component {
           this.onClickShowDetails(hotel.id)
         }
       }
+      console.log(this.state.orders);
       return (
 
         <div className="container">
