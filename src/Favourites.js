@@ -26,8 +26,8 @@ export default class Favourite extends Component {
     render() {
         return (
             <div className="col-5 col-sm-4 col-md-3 col-lg-2 sidebar shadow ml-auto">
-                {this.redirect && <Redirect to={"/HotelDetails/" + this.state.id} />}
                 <div className="innerdiv">
+                    {this.redirect && <Redirect to={"/HotelDetails/" + this.state.id} />}
                     {this.state.hotels.map(hotel =>
                         <div>
                             <div key={hotel.id} className="card text-white">

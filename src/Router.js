@@ -42,8 +42,8 @@ export default class Router extends Component {
                                     
                                 </Switch>
                             </div>
+                            <Favourite />
                         </div>
-                        <Favourite />
                     </section>
                 </div>
             </HashRouter>
