@@ -43,11 +43,16 @@ class ApiFacade {
     return fetch(URL + "/api/info/user", options).then(handleHttpErrors);
   }
 
+  fetchOrders = async () => {
+    const options = this.makeOptions("GET", true);
+    return await fetch(URL + "/api/order", options).then(handleHttpErrors); 
+  }
+
   fetchHotels = async () => {
     const options = this.makeOptions("GET");
     return await fetch(URL + "/api/hotel/simple", options).then(handleHttpErrors);
   }
-  
+
   fetchFavourites = async () => {
     const options = this.makeOptions("GET");
     return await fetch(URL + "/api/hotel/favourites", options).then(handleHttpErrors);
@@ -75,13 +80,13 @@ class ApiFacade {
     const options = this.makeOptions("GET");
     return await fetch(URL + "/api/hotel/" + id, options).then(handleHttpErrors);
   }
-  fetchHotelFromZip = async (zip) => { 
+  fetchHotelFromZip = async (zip) => {
     const options = this.makeOptions("GET");
     return await fetch(URL + "/api/hotel/zip/" + zip, options).then(handleHttpErrors);
   }
-  fetchHotelFromPrice = async (min, max) => { 
+  fetchHotelFromPrice = async (min, max) => {
     const options = this.makeOptions("GET");
-    return await fetch(URL + "/api/hotel/simple?lowestPrice="+ min +"&highestPrice="+max , options).then(handleHttpErrors);
+    return await fetch(URL + "/api/hotel/simple?lowestPrice=" + min + "&highestPrice=" + max, options).then(handleHttpErrors);
   }
 
 
